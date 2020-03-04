@@ -1,0 +1,17 @@
+.container {
+    text-align: center;
+}
+
+.card-conatiner {
+    text-align: center;
+}
+
+.card {
+    display: inline-block;
+    text-align: center;
+    width: 400px;
+}
+
+.card-body {
+    padding: 1.5rem;
+}

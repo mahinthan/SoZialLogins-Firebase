@@ -1,0 +1,33 @@
+<div class="container">
+  <h1>
+    Social Logins
+  </h1>
+  <div class="wrap" *ngIf="!(user | async)?.uid">
+    <!--Facebook-->
+    <button type="button" class="btn primary-color-dark btn-lg" (click)="loginWithFacebook()"><i class="fa fa-facebook left"></i> Login With Facebook</button>
+    <!--Twitter-->
+    <button type="button" class="btn primary-color btn-lg" (click)="loginWithTwitter()"><i class="fa fa-twitter left"></i> Login With Twitter</button>
+    <!--Google +-->
+    <button type="button" class="btn danger-color btn-lg" (click)="loginWithGoogle()"><i class="fa fa-google left"></i> Login With Google</button>
+    <!--Github-->
+    <button type="button" class="btn elegant-color-dark btn-lg" (click)="loginWithGithub()"><i class="fa fa-github left"></i> Login With Github</button>
+  </div>
+
+  <div class="card-conatiner">
+    <!--Card-->
+    <div class="card" *ngIf="(user | async)?.uid">
+      <!--Card image-->
+      <img src="{{(user | async)?.photoURL}}" class="img-fluid" alt="{{(user | async)?.displayName}}">
+      <!--Card content-->
+      <div class="card-body">
+        <!--Title-->
+        <p class="card-title">{{(user | async)?.displayName}}</p>
+        <!--Text-->
+        <p class="card-text">Hi! My name is {{(user | async)?.displayName}} and you can reach out to me at <a [href]="'mailto://' + (user | async)?.email">{{(user | async)?.email}}</a></p>
+        <a href="#" class="btn btn-primary" (click)="logout()">Logout</a>
+      </div>
+
+    </div>
+    <!--/.Card-->
+  </div>
+</div>
